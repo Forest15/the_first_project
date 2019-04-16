@@ -64,32 +64,32 @@ INSERT INTO tfp.doc_type ( id, code, name )
 VALUES ( 3, '10', 'Паспорт иностранного гражданина' ) ;
 
 /*Here, I insert the data to the user_doc table.*/
-INSERT INTO tfp.user_doc ( user_id, doc_id, doc_date, is_general )
-VALUES ( 1, 1, '11.03.88', true ) ;
+INSERT INTO tfp.user_doc ( user_id, doc_id, ser_num, who_issued, dep_code, doc_date, is_general )
+VALUES ( 1, 1, '9009908991', 'State Department #1', '115-551', '11.03.88', true ) ;
 
-INSERT INTO tfp.user_doc ( user_id, doc_id, doc_date, is_general )
-VALUES ( 1, 2, '12.03.88', false ) ;
+INSERT INTO tfp.user_doc ( user_id, doc_id, ser_num, who_issued, dep_code, doc_date, is_general )
+VALUES ( 1, 2, '9009908992', 'State Department #2', '115-552', '12.03.88', false ) ;
 
-INSERT INTO tfp.user_doc ( user_id, doc_id, doc_date, is_general )
-VALUES ( 2, 2, '01.05.90', true ) ;
+INSERT INTO tfp.user_doc ( user_id, doc_id, ser_num, who_issued, dep_code, doc_date, is_general )
+VALUES ( 2, 2, '9009908993', 'State Department #3', '115-553', '01.05.90', true ) ;
 
-INSERT INTO tfp.user_doc ( user_id, doc_id, doc_date, is_general )
-VALUES ( 2, 3, '02.05.90', false ) ;
+INSERT INTO tfp.user_doc ( user_id, doc_id, ser_num, who_issued, dep_code, doc_date, is_general )
+VALUES ( 2, 3, '9009908994', 'State Department #4', '115-554', '02.05.90', false ) ;
 
-INSERT INTO tfp.user_doc ( user_id, doc_id, doc_date, is_general )
-VALUES ( 3, 1, '10.06.90', true ) ;
+INSERT INTO tfp.user_doc ( user_id, doc_id, ser_num, who_issued, dep_code, doc_date, is_general )
+VALUES ( 3, 1, '9009908995', 'State Department #5', '115-555', '10.06.90', true ) ;
 
-INSERT INTO tfp.user_doc ( user_id, doc_id, doc_date, is_general )
-VALUES ( 4, 1, '20.06.90', true ) ;
+INSERT INTO tfp.user_doc ( user_id, doc_id, ser_num, who_issued, dep_code, doc_date, is_general )
+VALUES ( 4, 1, '9009908996', 'State Department #6', '115-556', '20.06.90', true ) ;
 
-INSERT INTO tfp.user_doc ( user_id, doc_id, doc_date, is_general )
-VALUES ( 5, 2, '20.07.90', true ) ;
+INSERT INTO tfp.user_doc ( user_id, doc_id, ser_num, who_issued, dep_code, doc_date, is_general )
+VALUES ( 5, 2, '9009908997', 'State Department #7', '115-557', '20.07.90', true ) ;
 
-INSERT INTO tfp.user_doc ( user_id, doc_id, doc_date, is_general )
-VALUES ( 6, 2, '15.09.90', true ) ;
+INSERT INTO tfp.user_doc ( user_id, doc_id, ser_num, who_issued, dep_code, doc_date, is_general )
+VALUES ( 6, 2, '9009908998', 'State Department #8', '115-558', '15.09.90', true ) ;
 
-INSERT INTO tfp.user_doc ( user_id, doc_id, doc_date, is_general )
-VALUES ( 7, 3, '15.10.90', true ) ;
+INSERT INTO tfp.user_doc ( user_id, doc_id, ser_num, who_issued, dep_code, doc_date, is_general )
+VALUES ( 7, 3, '9009908999', 'State Department #9', '115-559', '15.10.90', true ) ;
 
-INSERT INTO tfp.user_doc ( user_id, doc_id, doc_date, is_general )
-VALUES ( 8, 3, '16.10.90', true ) ;
+INSERT INTO tfp.user_doc ( user_id, doc_id, ser_num, who_issued, dep_code, doc_date, is_general )
+VALUES ( 8, 3, '9009908990', 'State Department #10', '115-550', '16.10.90', true ) ;

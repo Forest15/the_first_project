@@ -70,6 +70,9 @@ CREATE INDEX ix_doc_type_id ON tfp.doc_type (id);
 CREATE TABLE IF NOT EXISTS tfp.user_doc (
     user_id INTEGER NOT NULL REFERENCES tfp.user(id),
     doc_id INTEGER NOT NULL REFERENCES tfp.doc_type(id),
+    ser_num VARCHAR(10) NOT NULL,
+    who_issued VARCHAR(50) NOT NULL,
+    dep_code VARCHAR(7),
     doc_date VARCHAR(15) NOT NULL,
     is_general BOOLEAN NOT NULL,
     PRIMARY KEY (user_id, doc_id)
