@@ -1,6 +1,7 @@
 package ru.bellintegrator.thefirstproject.model;
 
 import io.swagger.annotations.ApiModelProperty;
+import ru.bellintegrator.thefirstproject.model.organization.OrganizationFullModel;
 
 import java.io.Serializable;
 
@@ -21,6 +22,23 @@ public class ResponseModel implements Serializable {
     }
 
     public ResponseModel(){
+
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+
+        if (obj == null) return false;
+
+        if (!(obj instanceof ResponseModel))
+
+            return false;
+
+        if (obj == this)
+
+            return true;
+
+        return this.getResult().equals(((ResponseModel) obj).getResult());
 
     }
 

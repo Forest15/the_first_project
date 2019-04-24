@@ -4,6 +4,10 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import ru.bellintegrator.thefirstproject.model.*;
+import ru.bellintegrator.thefirstproject.model.organization.OrganizationCreatingModel;
+import ru.bellintegrator.thefirstproject.model.organization.OrganizationFullModel;
+import ru.bellintegrator.thefirstproject.model.organization.OrganizationListModel;
+import ru.bellintegrator.thefirstproject.model.organization.OrganizationRequestModel;
 import ru.bellintegrator.thefirstproject.service.OrganizationService;
 
 @RestController
@@ -26,7 +30,7 @@ public class OrganizationController {
     }
 
     @PutMapping(value = "/update")
-    @ApiOperation(value = "The update of the organization details")
+    @ApiOperation(value = "The update of the organization details", tags = "Organization")
     public ResponseModel updateOrganization(OrganizationFullModel orgUpdatingModel){
         return orgService.updateOrganization(orgUpdatingModel);
     }

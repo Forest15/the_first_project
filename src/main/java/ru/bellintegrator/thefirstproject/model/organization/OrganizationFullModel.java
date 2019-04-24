@@ -1,4 +1,4 @@
-package ru.bellintegrator.thefirstproject.model;
+package ru.bellintegrator.thefirstproject.model.organization;
 
 import io.swagger.annotations.ApiModelProperty;
 
@@ -99,6 +99,23 @@ public class OrganizationFullModel implements Serializable {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+
+        if (obj == null) return false;
+
+        if (!(obj instanceof OrganizationFullModel))
+
+            return false;
+
+        if (obj == this)
+
+            return true;
+
+        return this.getId() == ((OrganizationFullModel) obj).getId();
+
     }
 
     public static final class Builder{

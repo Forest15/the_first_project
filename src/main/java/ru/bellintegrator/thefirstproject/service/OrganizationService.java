@@ -2,6 +2,7 @@ package ru.bellintegrator.thefirstproject.service;
 
 import org.springframework.stereotype.Service;
 import ru.bellintegrator.thefirstproject.model.*;
+import ru.bellintegrator.thefirstproject.model.organization.*;
 
 import java.util.ArrayList;
 import java.util.List;

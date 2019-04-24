@@ -1,4 +1,4 @@
-package ru.bellintegrator.thefirstproject.model;
+package ru.bellintegrator.thefirstproject.model.organization;
 
 import io.swagger.annotations.ApiModelProperty;
 
