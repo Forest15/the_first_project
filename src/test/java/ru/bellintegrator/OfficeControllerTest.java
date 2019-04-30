@@ -21,7 +21,6 @@ import java.util.List;
 public class OfficeControllerTest {
     @Mock
     OfficeController officeController;
-
     @InjectMocks
     RestTemplate restTemplate = new RestTemplate();
 
