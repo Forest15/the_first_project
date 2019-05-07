@@ -10,9 +10,7 @@ import ru.bellintegrator.thefirstproject.domain.model.*;
 import ru.bellintegrator.thefirstproject.domain.model.organization.*;
 import ru.bellintegrator.thefirstproject.repository.OrganizationRepository;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class OrganizationServiceImpl implements OrganizationService{

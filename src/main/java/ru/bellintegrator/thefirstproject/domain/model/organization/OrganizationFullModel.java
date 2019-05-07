@@ -5,23 +5,24 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
 
 public class OrganizationFullModel implements Serializable {
+    private static final long serialVersionUID = -1256606141950278286L;
 
     @ApiModelProperty(notes = "The id of the organization", required = true)
-    public Long id;
+    private Long id;
     @ApiModelProperty(notes = "The name of organization", required = true)
-    public String name;
+    private String name;
     @ApiModelProperty(notes = "Is the organization active?", required = false)
-    public String isActive;
+    private String isActive;
     @ApiModelProperty(notes = "The full name of organization", required = false)
-    public String fullName;
+    private String fullName;
     @ApiModelProperty(notes = "The inn of the organization", required = false)
-    public String inn;
+    private String inn;
     @ApiModelProperty(notes = "The kpp of the organization", required = false)
-    public String kpp;
+    private String kpp;
     @ApiModelProperty(notes = "The address of the organization", required = false)
-    public String address;
+    private String address;
     @ApiModelProperty(notes = "The phone of the organization", required = false)
-    public String phone;
+    private String phone;
 
     public OrganizationFullModel(OrganizationFullModel.Builder builder) {
         setId(builder.id);
@@ -117,6 +118,22 @@ public class OrganizationFullModel implements Serializable {
         return this.getId() == ((OrganizationFullModel) obj).getId();
 
     }
+
+    @Override
+    public String toString() {
+        return "OrganizationFullModel{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", isActive='" + isActive + '\'' +
+                ", fullName='" + fullName + '\'' +
+                ", inn='" + inn + '\'' +
+                ", kpp='" + kpp + '\'' +
+                ", address='" + address + '\'' +
+                ", phone='" + phone + '\'' +
+                '}';
+    }
+
+
 
     public static final class Builder{
         private Long id;

@@ -2,6 +2,7 @@ package ru.bellintegrator.thefirstproject.controller;
 
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.bellintegrator.thefirstproject.domain.model.*;
 import ru.bellintegrator.thefirstproject.domain.model.organization.*;
@@ -22,8 +23,9 @@ public class OrganizationController {
 
     @PostMapping(value = "/list")
     @ApiOperation(value = "Request the organization list with filter", tags = "Organization")
-    public List<OrganizationBaseModel> getOrgList(OrganizationRequestModel orgRequestModel){
-        return organizationService.getOrgList(orgRequestModel);
+    public ResponseEntity<List<OrganizationBaseModel>> getOrgList(OrganizationRequestModel orgRequestModel){
+        List<OrganizationBaseModel> organizationBaseModelList = organizationService.getOrgList(orgRequestModel);
+        return !organizationBaseModelList.isEmpty() ? ResponseEntity.ok(organizationBaseModelList) : ResponseEntity.notFound().build();
     }
 
     @GetMapping(value = "/{id}")
