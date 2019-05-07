@@ -1,17 +1,21 @@
-package ru.bellintegrator.thefirstproject.model.organization;
+package ru.bellintegrator.thefirstproject.domain.model.organization;
 
 import io.swagger.annotations.ApiModelProperty;
 
-public class OrganizationCreatingModel {
+import java.io.Serializable;
 
+public class OrganizationFullModel implements Serializable {
+
+    @ApiModelProperty(notes = "The id of the organization", required = true)
+    public Long id;
     @ApiModelProperty(notes = "The name of organization", required = true)
-    public String orgName;
-    @ApiModelProperty(notes = "The inn of organization", required = false)
-    public String inn;
+    public String name;
     @ApiModelProperty(notes = "Is the organization active?", required = false)
     public String isActive;
     @ApiModelProperty(notes = "The full name of organization", required = false)
     public String fullName;
+    @ApiModelProperty(notes = "The inn of the organization", required = false)
+    public String inn;
     @ApiModelProperty(notes = "The kpp of the organization", required = false)
     public String kpp;
     @ApiModelProperty(notes = "The address of the organization", required = false)
@@ -19,33 +23,34 @@ public class OrganizationCreatingModel {
     @ApiModelProperty(notes = "The phone of the organization", required = false)
     public String phone;
 
-    public OrganizationCreatingModel(OrganizationCreatingModel.Builder builder) {
-        setOrgName(builder.orgName);
-        setInn(builder.inn);
+    public OrganizationFullModel(OrganizationFullModel.Builder builder) {
+        setId(builder.id);
+        setName(builder.name);
         setIsActive(builder.isActive);
         setFullName(builder.fullName);
+        setInn(builder.inn);
         setKpp(builder.kpp);
         setAddress(builder.address);
         setPhone(builder.phone);
     }
 
-    public OrganizationCreatingModel() {
+    public OrganizationFullModel() {
     }
 
-    public String getOrgName() {
-        return orgName;
+    public Long getId() {
+        return id;
     }
 
-    public void setOrgName(String orgName) {
-        this.orgName = orgName;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public String getInn() {
-        return inn;
+    public String getName() {
+        return name;
     }
 
-    public void setInn(String inn) {
-        this.inn = inn;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getIsActive() {
@@ -62,6 +67,14 @@ public class OrganizationCreatingModel {
 
     public void setFullName(String fullName) {
         this.fullName = fullName;
+    }
+
+    public String getInn() {
+        return inn;
+    }
+
+    public void setInn(String inn) {
+        this.inn = inn;
     }
 
     public String getKpp() {
@@ -88,11 +101,29 @@ public class OrganizationCreatingModel {
         this.phone = phone;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+
+        if (obj == null) return false;
+
+        if (!(obj instanceof OrganizationFullModel))
+
+            return false;
+
+        if (obj == this)
+
+            return true;
+
+        return this.getId() == ((OrganizationFullModel) obj).getId();
+
+    }
+
     public static final class Builder{
-        private String orgName;
-        private String inn;
+        private Long id;
+        private String name;
         private String isActive;
         private String fullName;
+        private String inn;
         private String kpp;
         private String address;
         private String phone;
@@ -100,13 +131,13 @@ public class OrganizationCreatingModel {
         public Builder(){
         }
 
-        public Builder orgName(String orgName){
-            this.orgName = orgName;
+        public Builder id(Long id){
+            this.id = id;
             return this;
         }
 
-        public Builder inn(String inn){
-            this.inn = inn;
+        public Builder name(String name){
+            this.name = name;
             return this;
         }
 
@@ -117,6 +148,11 @@ public class OrganizationCreatingModel {
 
         public Builder fullName(String fullName){
             this.fullName = fullName;
+            return this;
+        }
+
+        public Builder inn(String inn){
+            this.inn = inn;
             return this;
         }
 
@@ -135,8 +171,8 @@ public class OrganizationCreatingModel {
             return this;
         }
 
-        public OrganizationCreatingModel build(){
-            return new OrganizationCreatingModel(this);
+        public OrganizationFullModel build(){
+            return new OrganizationFullModel(this);
         }
 
     }

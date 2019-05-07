@@ -1,7 +1,6 @@
-package ru.bellintegrator.thefirstproject.model.organization;
+package ru.bellintegrator.thefirstproject.domain.model.organization;
 
 import io.swagger.annotations.ApiModelProperty;
-import ru.bellintegrator.thefirstproject.model.office.OfficeListModel;
 
 import java.io.Serializable;
 import java.util.List;

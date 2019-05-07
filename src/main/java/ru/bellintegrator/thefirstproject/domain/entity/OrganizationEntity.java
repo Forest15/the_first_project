@@ -1,20 +1,17 @@
-package ru.bellintegrator.thefirstproject.entity;
+package ru.bellintegrator.thefirstproject.domain.entity;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "ORGANIZATION")
+@Table(name = "ORGANIZATION", schema = "tfp")
 public class OrganizationEntity {
     @Id
-    @Basic
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     private Long id;
     private String name;
-    @Basic
     @Column(name = "is_active")
     private String isActive;
-    @Basic
     @Column(name = "full_name")
     private String fullName;
     private String inn;
@@ -23,6 +20,16 @@ public class OrganizationEntity {
     private String phone;
 
     public OrganizationEntity() {
+    }
+
+    public OrganizationEntity(String name, String isActive, String fullName, String inn, String kpp, String address, String phone) {
+        this.name = name;
+        this.isActive = isActive;
+        this.fullName = fullName;
+        this.inn = inn;
+        this.kpp = kpp;
+        this.address = address;
+        this.phone = phone;
     }
 
     public Long getId() {

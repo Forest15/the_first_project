@@ -10,9 +10,9 @@ import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 import ru.bellintegrator.thefirstproject.controller.OfficeController;
-import ru.bellintegrator.thefirstproject.model.office.OfficeBaseModel;
-import ru.bellintegrator.thefirstproject.model.office.OfficeListModel;
-import ru.bellintegrator.thefirstproject.model.office.OfficeRequestModel;
+import ru.bellintegrator.thefirstproject.domain.model.office.OfficeBaseModel;
+import ru.bellintegrator.thefirstproject.domain.model.office.OfficeListModel;
+import ru.bellintegrator.thefirstproject.domain.model.office.OfficeRequestModel;
 
 import java.util.ArrayList;
 import java.util.List;

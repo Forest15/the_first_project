@@ -1,10 +1,9 @@
 package ru.bellintegrator.thefirstproject.service;
 
 import org.springframework.stereotype.Service;
-import ru.bellintegrator.thefirstproject.model.office.OfficeListModel;
-import ru.bellintegrator.thefirstproject.model.office.OfficeBaseModel;
-import ru.bellintegrator.thefirstproject.model.office.OfficeRequestModel;
-import ru.bellintegrator.thefirstproject.model.organization.OrganizationBaseModel;
+import ru.bellintegrator.thefirstproject.domain.model.office.OfficeListModel;
+import ru.bellintegrator.thefirstproject.domain.model.office.OfficeBaseModel;
+import ru.bellintegrator.thefirstproject.domain.model.office.OfficeRequestModel;
 
 import java.util.ArrayList;
 import java.util.List;

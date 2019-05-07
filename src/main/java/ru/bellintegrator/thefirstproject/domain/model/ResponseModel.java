@@ -1,7 +1,6 @@
-package ru.bellintegrator.thefirstproject.model;
+package ru.bellintegrator.thefirstproject.domain.model;
 
 import io.swagger.annotations.ApiModelProperty;
-import ru.bellintegrator.thefirstproject.model.organization.OrganizationFullModel;
 
 import java.io.Serializable;
 

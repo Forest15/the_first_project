@@ -12,11 +12,8 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 import ru.bellintegrator.thefirstproject.controller.OrganizationController;
-import ru.bellintegrator.thefirstproject.model.ResponseModel;
-import ru.bellintegrator.thefirstproject.model.office.OfficeBaseModel;
-import ru.bellintegrator.thefirstproject.model.office.OfficeListModel;
-import ru.bellintegrator.thefirstproject.model.office.OfficeRequestModel;
-import ru.bellintegrator.thefirstproject.model.organization.*;
+import ru.bellintegrator.thefirstproject.domain.model.ResponseModel;
+import ru.bellintegrator.thefirstproject.domain.model.organization.*;
 
 import java.util.ArrayList;
 import java.util.List;

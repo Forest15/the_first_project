@@ -5,8 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import ru.bellintegrator.thefirstproject.model.office.OfficeListModel;
-import ru.bellintegrator.thefirstproject.model.office.OfficeRequestModel;
+import ru.bellintegrator.thefirstproject.domain.model.office.OfficeListModel;
+import ru.bellintegrator.thefirstproject.domain.model.office.OfficeRequestModel;
 import ru.bellintegrator.thefirstproject.service.OfficeService;
 
 @RestController
