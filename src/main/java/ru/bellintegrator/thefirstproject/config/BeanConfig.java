@@ -15,4 +15,6 @@ public class BeanConfig {
         return new DefaultMapperFactory.Builder().build();
     }
 
+
+
 }

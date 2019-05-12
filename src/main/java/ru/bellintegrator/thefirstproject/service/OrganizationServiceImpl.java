@@ -33,7 +33,7 @@ public class OrganizationServiceImpl implements OrganizationService{
     }
 
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public OrganizationFullModel getOrgById(Long id){
         OrganizationEntity organizationEntity = organizationRepository.loadById(id);
         return new OrganizationFullModel.Builder().
