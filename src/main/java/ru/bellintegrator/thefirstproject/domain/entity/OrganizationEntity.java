@@ -11,7 +11,7 @@ public class OrganizationEntity {
     private Long id;
     private String name;
     @Column(name = "is_active")
-    private String isActive;
+    private Boolean isActive;
     @Column(name = "full_name")
     private String fullName;
     private String inn;
@@ -22,7 +22,13 @@ public class OrganizationEntity {
     public OrganizationEntity() {
     }
 
-    public OrganizationEntity(String name, String isActive, String fullName, String inn, String kpp, String address, String phone) {
+    public OrganizationEntity(Long id, String name, Boolean isActive){
+        this.id = id;
+        this.name = name;
+        this.isActive = isActive;
+    }
+
+    public OrganizationEntity(String name, Boolean isActive, String fullName, String inn, String kpp, String address, String phone) {
         this.name = name;
         this.isActive = isActive;
         this.fullName = fullName;
@@ -48,11 +54,11 @@ public class OrganizationEntity {
         this.name = name;
     }
 
-    public String getIsActive() {
+    public Boolean getIsActive() {
         return isActive;
     }
 
-    public void setIsActive(String isActive) {
+    public void setIsActive(Boolean isActive) {
         this.isActive = isActive;
     }
 

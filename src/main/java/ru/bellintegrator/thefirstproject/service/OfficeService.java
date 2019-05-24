@@ -1,23 +1,50 @@
 package ru.bellintegrator.thefirstproject.service;
 
-import org.springframework.stereotype.Service;
-import ru.bellintegrator.thefirstproject.domain.model.office.OfficeListModel;
+import org.springframework.validation.annotation.Validated;
+import ru.bellintegrator.thefirstproject.domain.model.ResponseModel;
 import ru.bellintegrator.thefirstproject.domain.model.office.OfficeBaseModel;
+import ru.bellintegrator.thefirstproject.domain.model.office.OfficeCreatingModel;
+import ru.bellintegrator.thefirstproject.domain.model.office.OfficeFullModel;
 import ru.bellintegrator.thefirstproject.domain.model.office.OfficeRequestModel;
 
-import java.util.ArrayList;
+import javax.validation.Valid;
 import java.util.List;
 
-@Service
-public class OfficeService {
+@Validated
+public interface OfficeService {
+    /**
+     * Get the office list
+     *
+     * @return {List<OfficeBaseModel>}
+     */
+    List<OfficeBaseModel> getOfficeList(OfficeRequestModel officeRequestModel);
 
-    public OfficeListModel getOfficeList(OfficeRequestModel officeRequestModel){
-        List<OfficeBaseModel> officeBaseModelList = new ArrayList<OfficeBaseModel>();
-        officeBaseModelList.add(new OfficeBaseModel.Builder().id(1L).name("BeelineTechOffice").isActive("1").build());
-        officeBaseModelList.add(new OfficeBaseModel.Builder().id(2L).name("BeelineSalesOffice").isActive("1").build());
-        OfficeListModel officeListModel = new OfficeListModel();
-        officeListModel.setOfficeBaseModelList(officeBaseModelList);
-        return officeListModel;
-    }
+    /**
+     *
+     * Get the office by id;
+     *
+     * @param id
+     *
+     * @return OfficeFullModel
+     */
+    public OfficeFullModel getOfficeById(Long id);
 
+    /**
+     *
+     * Update the office;
+     *
+     * @param officeUpdatingModel
+     *
+     * @return ResponseModel
+     *
+     */
+    public ResponseModel updateOffice(OfficeFullModel officeUpdatingModel);
+
+    /**
+     * Add new office into DB
+     *
+     * @param officeCreatingModel
+     */
+    ResponseModel createOffice
+    (@Valid OfficeCreatingModel officeCreatingModel);
 }

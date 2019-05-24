@@ -2,6 +2,7 @@ package ru.bellintegrator.thefirstproject.repository;
 
 import ru.bellintegrator.thefirstproject.domain.entity.OrganizationEntity;
 import ru.bellintegrator.thefirstproject.domain.model.organization.OrganizationFullModel;
+import ru.bellintegrator.thefirstproject.domain.model.organization.OrganizationRequestModel;
 
 import java.util.List;
 
@@ -11,7 +12,7 @@ public interface OrganizationRepository {
      *
      * @return List<OrganizationEntity>
      */
-    List<OrganizationEntity> all();
+    List<OrganizationEntity> all(OrganizationRequestModel orgRequestModel);
 
     /**
      * Get the OrganizationEntity object by id;

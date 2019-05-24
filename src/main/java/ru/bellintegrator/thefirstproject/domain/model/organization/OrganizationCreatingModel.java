@@ -2,25 +2,27 @@ package ru.bellintegrator.thefirstproject.domain.model.organization;
 
 import io.swagger.annotations.ApiModelProperty;
 
-public class OrganizationCreatingModel {
+import java.io.Serializable;
 
-    @ApiModelProperty(notes = "The name of organization", required = true)
-    public String orgName;
+public class OrganizationCreatingModel implements Serializable {
+
+    @ApiModelProperty(notes = "The firstName of organization", required = true)
+    private String name;
     @ApiModelProperty(notes = "The inn of organization", required = false)
-    public String inn;
+    private String inn;
     @ApiModelProperty(notes = "Is the organization active?", required = false)
-    public String isActive;
-    @ApiModelProperty(notes = "The full name of organization", required = false)
-    public String fullName;
+    private Boolean isActive;
+    @ApiModelProperty(notes = "The full firstName of organization", required = false)
+    private String fullName;
     @ApiModelProperty(notes = "The kpp of the organization", required = false)
-    public String kpp;
+    private String kpp;
     @ApiModelProperty(notes = "The address of the organization", required = false)
-    public String address;
+    private String address;
     @ApiModelProperty(notes = "The phone of the organization", required = false)
-    public String phone;
+    private String phone;
 
     public OrganizationCreatingModel(OrganizationCreatingModel.Builder builder) {
-        setOrgName(builder.orgName);
+        setName(builder.name);
         setInn(builder.inn);
         setIsActive(builder.isActive);
         setFullName(builder.fullName);
@@ -32,12 +34,12 @@ public class OrganizationCreatingModel {
     public OrganizationCreatingModel() {
     }
 
-    public String getOrgName() {
-        return orgName;
+    public String getName() {
+        return name;
     }
 
-    public void setOrgName(String orgName) {
-        this.orgName = orgName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getInn() {
@@ -48,11 +50,11 @@ public class OrganizationCreatingModel {
         this.inn = inn;
     }
 
-    public String getIsActive() {
+    public Boolean getIsActive() {
         return isActive;
     }
 
-    public void setIsActive(String isActive) {
+    public void setIsActive(Boolean isActive) {
         this.isActive = isActive;
     }
 
@@ -89,9 +91,9 @@ public class OrganizationCreatingModel {
     }
 
     public static final class Builder{
-        private String orgName;
+        private String name;
         private String inn;
-        private String isActive;
+        private Boolean isActive;
         private String fullName;
         private String kpp;
         private String address;
@@ -100,8 +102,8 @@ public class OrganizationCreatingModel {
         public Builder(){
         }
 
-        public Builder orgName(String orgName){
-            this.orgName = orgName;
+        public Builder name(String name){
+            this.name = name;
             return this;
         }
 
@@ -110,7 +112,7 @@ public class OrganizationCreatingModel {
             return this;
         }
 
-        public Builder isActive(String isActive){
+        public Builder isActive(Boolean isActive){
             this.isActive = isActive;
             return this;
         }

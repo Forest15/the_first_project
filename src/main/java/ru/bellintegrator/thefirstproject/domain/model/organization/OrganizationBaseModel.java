@@ -6,12 +6,12 @@ import java.io.Serializable;
 
 public class OrganizationBaseModel implements Serializable {
 
-    @ApiModelProperty(notes = "The id of the organization", required = true)
+    @ApiModelProperty(notes = "The id of the organization", required = false)
     public Long id;
-    @ApiModelProperty(notes = "The name of organization", required = true)
+    @ApiModelProperty(notes = "The firstName of organization", required = false)
     public String name;
     @ApiModelProperty(notes = "Is the organization active?", required = false)
-    public String isActive;
+    public Boolean isActive;
 
     public OrganizationBaseModel(OrganizationBaseModel.Builder builder) {
         setId(builder.id);
@@ -38,18 +38,18 @@ public class OrganizationBaseModel implements Serializable {
         this.name = name;
     }
 
-    public String getIsActive() {
+    public Boolean getIsActive() {
         return isActive;
     }
 
-    public void setIsActive(String isActive) {
+    public void setIsActive(Boolean isActive) {
         this.isActive = isActive;
     }
 
     public static class Builder{
         private Long id;
         private String name;
-        private String isActive;
+        private Boolean isActive;
         public Builder(){
         }
 
@@ -63,7 +63,7 @@ public class OrganizationBaseModel implements Serializable {
             return this;
         }
 
-        public Builder isActive(String isActive){
+        public Builder isActive(Boolean isActive){
             this.isActive = isActive;
             return this;
         }
@@ -71,5 +71,20 @@ public class OrganizationBaseModel implements Serializable {
         public OrganizationBaseModel build(){
             return new OrganizationBaseModel(this);
         }
+    }
+
+    @Override
+    public boolean equals(Object o){
+        if(o == null){
+            return false;
+        }
+        if (!(o instanceof OrganizationBaseModel)){
+            return false;
+        }
+        if(o == this){
+            return true;
+        }
+
+        return this.getId() == ((OrganizationBaseModel) o).getId();
     }
 }

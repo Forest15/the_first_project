@@ -9,17 +9,17 @@ public class OrganizationFullModel implements Serializable {
 
     @ApiModelProperty(notes = "The id of the organization", required = true)
     private Long id;
-    @ApiModelProperty(notes = "The name of organization", required = true)
+    @ApiModelProperty(notes = "The firstName of organization", required = true)
     private String name;
     @ApiModelProperty(notes = "Is the organization active?", required = false)
-    private String isActive;
-    @ApiModelProperty(notes = "The full name of organization", required = false)
+    private Boolean isActive;
+    @ApiModelProperty(notes = "The full firstName of organization", required = true)
     private String fullName;
-    @ApiModelProperty(notes = "The inn of the organization", required = false)
+    @ApiModelProperty(notes = "The inn of the organization", required = true)
     private String inn;
-    @ApiModelProperty(notes = "The kpp of the organization", required = false)
+    @ApiModelProperty(notes = "The kpp of the organization", required = true)
     private String kpp;
-    @ApiModelProperty(notes = "The address of the organization", required = false)
+    @ApiModelProperty(notes = "The address of the organization", required = true)
     private String address;
     @ApiModelProperty(notes = "The phone of the organization", required = false)
     private String phone;
@@ -54,11 +54,11 @@ public class OrganizationFullModel implements Serializable {
         this.name = name;
     }
 
-    public String getIsActive() {
+    public Boolean getIsActive() {
         return isActive;
     }
 
-    public void setIsActive(String isActive) {
+    public void setIsActive(Boolean isActive) {
         this.isActive = isActive;
     }
 
@@ -123,7 +123,7 @@ public class OrganizationFullModel implements Serializable {
     public String toString() {
         return "OrganizationFullModel{" +
                 "id='" + id + '\'' +
-                ", name='" + name + '\'' +
+                ", firstName='" + name + '\'' +
                 ", isActive='" + isActive + '\'' +
                 ", fullName='" + fullName + '\'' +
                 ", inn='" + inn + '\'' +
@@ -138,7 +138,7 @@ public class OrganizationFullModel implements Serializable {
     public static final class Builder{
         private Long id;
         private String name;
-        private String isActive;
+        private Boolean isActive;
         private String fullName;
         private String inn;
         private String kpp;
@@ -158,7 +158,7 @@ public class OrganizationFullModel implements Serializable {
             return this;
         }
 
-        public Builder isActive(String isActive){
+        public Builder isActive(Boolean isActive){
             this.isActive = isActive;
             return this;
         }

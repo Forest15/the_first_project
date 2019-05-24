@@ -3,6 +3,7 @@ package ru.bellintegrator.thefirstproject.adapter;
 import ma.glasnost.orika.MapperFactory;
 import ma.glasnost.orika.impl.DefaultMapperFactory;
 import org.springframework.beans.factory.FactoryBean;
+import org.springframework.stereotype.Service;
 
 public class CustomMapperFactory implements FactoryBean<MapperFactory> {
     @Override

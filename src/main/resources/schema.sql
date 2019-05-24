@@ -5,7 +5,7 @@ CREATE SCHEMA tfp AUTHORIZATION SA ;
 CREATE TABLE IF NOT EXISTS tfp.organization (
 -- The org id created with sequence
     id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
--- The company short name
+-- The company short firstName
     name VARCHAR(30) NOT NULL,
 -- The company full name
     full_name VARCHAR(60) NOT NULL,
@@ -43,13 +43,13 @@ CREATE TABLE IF NOT EXISTS tfp.office (
 CREATE INDEX ix_office_id ON tfp.office (id);
 CREATE INDEX ix_office_org_id ON tfp.office (org_id);
 
-/*The country table, contains id, country code, country name. Relationship with the user table is o2m*/
+/*The country table, contains userId, country code, country firstName. Relationship with the user table is o2m*/
 CREATE TABLE IF NOT EXISTS tfp.country (
 -- The country id created with sequence
     id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
 -- The State country code
     code VARCHAR(3) NOT NULL,
--- The country name
+-- The country firstName
     name VARCHAR(60) NOT NULL
 );
 
@@ -63,11 +63,11 @@ CREATE TABLE IF NOT EXISTS tfp.user (
     country_id INTEGER,
 -- The FK references on the office table
     office_id INTEGER,
--- The first name of user
+-- The first firstName of user
     first_name VARCHAR(50) NOT NULL,
--- The middle name of user
+-- The middle firstName of user
     middle_name VARCHAR(50) NOT NULL,
--- The second name of user
+-- The second firstName of user
     second_name VARCHAR(50) NOT NULL,
 -- The position of user
     position VARCHAR(20) NOT NULL,
@@ -83,13 +83,13 @@ CREATE INDEX ix_user_Id ON tfp.user (id);
 CREATE INDEX ix_user_country_id ON tfp.user (country_id);
 CREATE INDEX ix_user_office_id ON tfp.user (office_id);
 
-/*The document type table, contains id, document code, document name. Relationship with the user table is m2m by using the user_doc table*/
+/*The document type table, contains userId, document code, document firstName. Relationship with the user table is m2m by using the user_doc table*/
 CREATE TABLE IF NOT EXISTS tfp.doc_type(
--- The doc_type id created with sequence
+-- The doc_type userId created with sequence
     id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
 -- The State Document code
     code VARCHAR(2) NOT NULL,
--- The State Document name
+-- The State Document firstName
     name VARCHAR(60) NOT NULL
 );
 
@@ -108,7 +108,7 @@ CREATE TABLE IF NOT EXISTS tfp.user_doc (
 -- Code of State Department whick issued the document
     dep_code VARCHAR(7),
 -- The document issue date
-    doc_date VARCHAR(15) NOT NULL,
+    doc_date DATE NOT NULL,
 -- Is the document general for this user. Only one of the user documents (for particular user) may be general.
     is_general BOOLEAN NOT NULL,
     PRIMARY KEY (user_id, doc_type_id)

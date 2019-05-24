@@ -6,12 +6,12 @@ import java.io.Serializable;
 
 public class OrganizationRequestModel implements Serializable {
 
-    @ApiModelProperty(notes = "The name of organization", required = true)
+    @ApiModelProperty(notes = "The firstName of organization", required = true)
     public String orgName;
     @ApiModelProperty(notes = "The inn of organization", required = false)
     public String inn;
     @ApiModelProperty(notes = "Is the organization active?", required = false)
-    public String isActive;
+    public Boolean isActive;
 
     public String getOrgName() {
         return orgName;
@@ -29,11 +29,11 @@ public class OrganizationRequestModel implements Serializable {
         this.inn = inn;
     }
 
-    public String getIsActive() {
+    public Boolean getIsActive() {
         return isActive;
     }
 
-    public void setIsActive(String isActive) {
+    public void setIsActive(Boolean isActive) {
         this.isActive = isActive;
     }
 
@@ -50,7 +50,7 @@ public class OrganizationRequestModel implements Serializable {
     public static class Builder{
         private String orgName;
         private String inn;
-        private String isActive;
+        private Boolean isActive;
 
         public Builder(){
 
@@ -66,7 +66,7 @@ public class OrganizationRequestModel implements Serializable {
             return this;
         }
 
-        public Builder isActive(String isActive){
+        public Builder isActive(Boolean isActive){
             this.isActive = isActive;
             return this;
         }

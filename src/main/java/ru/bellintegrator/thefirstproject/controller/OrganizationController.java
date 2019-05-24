@@ -22,7 +22,7 @@ public class OrganizationController {
 
     @PostMapping(value = "/list")
     @ApiOperation(value = "Request the organization list with filter", tags = "Organization")
-    public List<OrganizationBaseModel> getOrgList(OrganizationRequestModel orgRequestModel){
+    public List<OrganizationBaseModel> getOrgList(@RequestBody OrganizationRequestModel orgRequestModel){
         return organizationService.getOrgList(orgRequestModel);
     }
 
@@ -34,13 +34,13 @@ public class OrganizationController {
 
     @PutMapping(value = "/update")
     @ApiOperation(value = "The update of the organization details", tags = "Organization")
-    public ResponseModel updateOrganization(OrganizationFullModel orgUpdatingModel){
+    public ResponseModel updateOrganization(@RequestBody OrganizationFullModel orgUpdatingModel){
         return organizationService.updateOrganization(orgUpdatingModel);
     }
 
     @PostMapping(value = "/save")
     @ApiOperation(value = "The creation of the organization", tags = "Organization")
-    public ResponseModel createOrganization(OrganizationCreatingModel organizationCreatingModel){
+    public ResponseModel createOrganization(@RequestBody OrganizationCreatingModel organizationCreatingModel){
         return organizationService.createOrganization(organizationCreatingModel);
     }
 }

@@ -1,10 +1,9 @@
 package ru.bellintegrator.thefirstproject.service;
 
-import ma.glasnost.orika.MapperFacade;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.bellintegrator.thefirstproject.adapter.Adapter;
+import ru.bellintegrator.thefirstproject.adapter.OrganizationAdapterImpl;
 import ru.bellintegrator.thefirstproject.domain.entity.OrganizationEntity;
 import ru.bellintegrator.thefirstproject.domain.model.*;
 import ru.bellintegrator.thefirstproject.domain.model.organization.*;
@@ -16,20 +15,20 @@ import java.util.List;
 public class OrganizationServiceImpl implements OrganizationService{
 
     private final OrganizationRepository organizationRepository;
-    private final Adapter adapter;
+    private final OrganizationAdapterImpl organizationAdapter;
 
     @Autowired
-    public OrganizationServiceImpl(OrganizationRepository organizationRepository, Adapter adapter) {
+    public OrganizationServiceImpl(OrganizationRepository organizationRepository, OrganizationAdapterImpl organizationAdapter) {
         this.organizationRepository = organizationRepository;
-        this.adapter = adapter;
+        this.organizationAdapter = organizationAdapter;
     }
 
     @Override
     @Transactional(readOnly = true)
     public List<OrganizationBaseModel> getOrgList(OrganizationRequestModel orgRequestModel){
 
-        List<OrganizationEntity> organizationBaseModelsList = organizationRepository.all();
-        return adapter.mapAsList(organizationBaseModelsList, OrganizationBaseModel.class);
+        List<OrganizationEntity> organizationBaseModelsList = organizationRepository.all(orgRequestModel);
+        return organizationAdapter.mapAsList(organizationBaseModelsList, OrganizationBaseModel.class);
     }
 
     @Override
@@ -60,13 +59,13 @@ public class OrganizationServiceImpl implements OrganizationService{
     @Transactional
     public ResponseModel createOrganization(OrganizationCreatingModel organizationCreatingModel){
         OrganizationEntity organizationEntity = new OrganizationEntity(
-                organizationCreatingModel.orgName,
-                organizationCreatingModel.isActive,
-                organizationCreatingModel.fullName,
-                organizationCreatingModel.inn,
-                organizationCreatingModel.kpp,
-                organizationCreatingModel.address,
-                organizationCreatingModel.phone
+                organizationCreatingModel.getName(),
+                organizationCreatingModel.getIsActive(),
+                organizationCreatingModel.getFullName(),
+                organizationCreatingModel.getInn(),
+                organizationCreatingModel.getKpp(),
+                organizationCreatingModel.getAddress(),
+                organizationCreatingModel.getPhone()
                 );
         organizationRepository.save(organizationEntity);
         return new ResponseModel.Builder().result("success").build();
